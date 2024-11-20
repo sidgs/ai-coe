@@ -2,6 +2,7 @@ version: "3.8"
 services:
   app:
     build: .
+    container_name: ai-customer-support-agent
     ports:
       - "5000:5000"
     environment:

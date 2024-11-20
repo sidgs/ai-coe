@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from app.agent import create_agent
+from agent import create_agent
 
 app = Flask(__name__)
 agent = create_agent()
@@ -12,7 +12,7 @@ def query():
         return jsonify({"error": "Query not provided"}), 400
 
     try:
-        response = agent.run(user_query)
+        response = agent.invoke(user_query)
         return jsonify({"response": response})
     except Exception as e:
         return jsonify({"error": str(e)}), 500

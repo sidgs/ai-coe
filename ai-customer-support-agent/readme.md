@@ -13,4 +13,21 @@ ROOT_FOLDER/
 └── README.md            # Documentation
 ```
 
+# Build and Run the container
+
+```bash
+docker build -t langchain-app .
+docker run -p 5000:5000 langchain-app
+```
+## Test the api
+```bash
+curl -X POST -H "Content-Type: application/json" \
+  -d '{"query": "What is the status of order 12345?"}' http://localhost:5000/query
+```
+### Expected Response 
+```json
+{
+  "response": "The order 12345 has shipped."
+}
+```
 Happy Hunting!!! 
